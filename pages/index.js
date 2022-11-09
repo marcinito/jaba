@@ -50,7 +50,7 @@ let canvas=canvasRef.current
 context.current=canvas.getContext("2d")
 console.log(height)
 let arr=[]
-for(let i=0;i<500;i++){
+for(let i=0;i<1000;i++){
   arr.push(new Participle(width,height))
 }
 
