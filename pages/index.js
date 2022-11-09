@@ -2,30 +2,77 @@ import Head from 'next/head'
 import Contact from '../component/Contact'
 import HeaderPage from '../component/HeaderPage'
 import {createClient} from 'contentful'
-
+import { useEffect, useRef,useState } from 'react'
 import s from '../styles/Home.module.scss'
+import World from '../component/World'
+import Categories from '../component/Categories'
+import { Participle } from '../FUNCTIONS/CANVAS/ParticpleClass'
+import Footer from '../component/Footer'
+
 
 export const getStaticProps=async()=>{
   const client=createClient({
     space:"5r8xso88q94y",
     accessToken:"viwGlOS3XAgC8R0RwkgWVfbzUrFSYoVfPJCh8-yMCKM"
   })
-  const res=await client.getEntries({content_type:"carouzel"})
+  const carouselImg=await client.getEntries({content_type:"carouzel"})
+  const fullWork=await client.getEntries({content_type:"zdjecia"})
 
   
   return {
     props:{
-      data:res.items
+      data:carouselImg.items,
+      full:fullWork.items
     }
   }
   
   }
 
 
-export default function Home({data}) {
+export default function Home({data,full}) {
+
+
+  const requestRef=useRef()
+  
+  const container=useRef()
+  const canvasRef=useRef()
+  const context=useRef()
+
+
+
+
+
+  useEffect(()=>{
+    let width=container.current.clientWidth
+ 
+let height=canvasRef.current.clientHeight
+let canvas=canvasRef.current
+context.current=canvas.getContext("2d")
+console.log(height)
+let arr=[]
+for(let i=0;i<500;i++){
+  arr.push(new Participle(width,height))
+}
+
+const animate=()=>{
+  context.current.clearRect(0,0,width,height)
+  arr.forEach((el,i,arr)=>{
+    el.draw(context.current)
+  })
+
+  requestAnimationFrame(animate)
+}
+
+
+
+
+    requestRef.current =requestAnimationFrame(animate)
+    return ()=>cancelAnimationFrame(requestRef.current)
+  },[])
+
 
   return (
-    <div className={s.container}>
+    <div ref={container} className={s.container}>
       <Head>
         <title>Create Next App</title>
         <meta name="viewport" 
@@ -34,17 +81,26 @@ export default function Home({data}) {
         
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <canvas className={s.canvas} ref={canvasRef}></canvas>
    <header className={s.header}>
+
 <Contact></Contact>
 <HeaderPage data={data}></HeaderPage>
-
+<World></World>
    </header>
-   <main>
+   <hr></hr>
+   <main className={s.main}>
+    <Categories full={full}></Categories>
+  
+
 
    </main>
+   <footer className={s.footer}>
+   <Footer></Footer>
+   </footer>
 
    
- 
+
     </div>
   )
 }
