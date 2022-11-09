@@ -16,10 +16,13 @@
   background:linear-gradient(lighten(gray,2%),black, gray,black);
   width:100%;
   max-width:100%;
-  height:90%;
-  border:1px solid red;
+  height:100%;
+
 }
 .footer{
   height:10vh;
   width:100%;
+  height:100%;
+  z-index:1000;
+ 
 }

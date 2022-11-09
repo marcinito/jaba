@@ -12,14 +12,14 @@ const Categories = ({full}) => {
             rocketRef.current.style.transition="5s"
             rocketRef.current.style.transform=`translateY(-1700px)`
                     }
-                    if(window.scrollY<10&&rocketRef.current.getBoundingClientRect().y<0){
+                    if(window.scrollY<300&&rocketRef.current.getBoundingClientRect().y<0){
                         rocketRef.current.style.transition=`0s`
                         rocketRef.current.style.transform=`translateY(0px)`
                      
                     }
     }
 useEffect(()=>{
-    document.addEventListener("touchstart", function() {}, true);
+   
     window.addEventListener("scroll",rocketHandle)
     return ()=>{
         window.removeEventListener("scroll",rocketHandle)
@@ -28,8 +28,8 @@ useEffect(()=>{
 })
     return ( <div className={s.categories} onScroll={()=>scrollAction()}>
         <img ref={rocketRef} className={s.rocket} src={"./rocket.png"}></img>
-        <h2 className={s.title}>Wykonane prace</h2>
         <section className={s.section}>
+        <h2 className={s.title}>Wykonane prace</h2>
          {full.map((el,i,arr)=>{
             return(
                 <article key={el.sys.id} className={s.article}>
@@ -37,7 +37,12 @@ useEffect(()=>{
                     <img className={s.imgThumbnail} src={el.fields.images[0].fields.file.url}></img>
                    
                     <Link href={`/${el.fields.adres}`}>
-                    <button className={s.button}>Sprawdz</button>
+                    <button className={s.button}>Sprawdz
+                    <span className={s.span1}></span>
+                        <span className={s.span2}></span>
+                        <span className={s.span3}></span>
+                        <span className={s.span4}></span>
+                    </button>
                     </Link>
                       
                 </article>

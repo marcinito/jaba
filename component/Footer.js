@@ -1,7 +1,7 @@
 import s from '../styles/Footer.module.scss'
 const Footer = () => {
     return ( <div className={s.footer}>
-        Copyright@
+        <h1>Siema</h1>
     </div> );
 }
  
