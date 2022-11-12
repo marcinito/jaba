@@ -1,6 +1,8 @@
 let counter=1
 let speedTransition=1
 export const changeImageInCarouzel=(slideRef,whichButton,imgSlider,effect)=>{
+console.log(slideRef,"i")
+
 
     let size=slideRef.current.clientWidth
     //LEFT BUTTON
@@ -31,6 +33,7 @@ if(whichButton==="left"){
 }
 //RIGHT BUTTON
 if(whichButton==="right"){
+  
 effect.current.style.transition=`0.5s`
 effect.current.style.transform=`translateX(-100%)`
 setTimeout(()=>{

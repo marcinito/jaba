@@ -1,68 +1,175 @@
-.article{
+.container{
     width:100%;
     height:100vh;
     background-color: lighten(pink,10%);
+
+
+
    .main{
     position:relative;
     width:100%;
     height:100%;
-    .titleEffect{
-        position: absolute;
-        width:100%;
-        height:17%;
-        background: rgba(0,0,0,0.1);
-        border-top-left-radius: 20%;
-        border-bottom-left-radius: 60%;
-        border-bottom-right-radius: 70%;
-     z-index:1;
-        backdrop-filter: blur(10px);
-        box-shadow:0px 10px 10px skyblue;
+    overflow:hidden;
+
+   }
+   .title{
+    width:100%;
+    height:10%;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 2px 2px #00ca;
+    overflow:hidden;
+    font-size:40px;
+    .sprites{
+        position:absolute;
+        left:0;
+        width:calc(256px / 3.5);
+        height:calc(512px /6);
+      
+        background: url("../public/spaceShip.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y:10%;
+     
+     
+
     }
+    .firstPart{
+        color: rgba(0,0,0,0.5);
+        animation:first 1s linear;
+        text-shadow: 1px 2px 2px skyblue;
     }
-    .title{
-        z-index:1;
-        position: absolute;
-     text-align: center;
+    .secondPart{
+      color: rgba(0,0,0,0.5);
+        animation:second 1s linear;
+        text-shadow: 1px 2px 2px skyblue;
+    }
+@keyframes first{
+    0%{transform:translateX(-100%)}
+    100%{transform:translateX(0)}
+}
+@keyframes second{
+    0%{
+        transform:translateX(200%)
+    }
+    100%{
+        transform:translateX(0%)
+    }
+}
+   }
+
+   .effectSlide{
+    position:relative;
+    width:100%;
+    height:70%;
+    position:absolute;
+   
+    left:-100%;
+    z-index:2;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
   
-        width:60%;
+    .span{
+       z-index:3;
+       backdrop-filter: blur(10px);
+       display:block;
+  
+       background: linear-gradient(180deg,rgba(0,0,0,0.9),rgba(200,0,0,0.5),transparent,yellow);
+       width:100%;
+       height:3%;
+     
+       opacity:0.4;
+    }
+    
+   }
+   .section{
+    width:100%;
+    height:70%;
+    background-color: skyblue;
+    overflow:hidden;
+
+ 
+    overflow:hidden;
+.slider{
+    width:100%;
+    height:100%;
+   
+    display:flex;
+  
+
+    .img{
+        min-width:100%;
+        
+    }
+}
+
+   }
+
+.buttonPak{
+    width:100%;
+    height:20%;
+    
+   
+    .left{
+        width:20%;
         height:20%;
-        max-height:130px;
-        min-height:100px;
-        font-size:40px;
-        background-color: rgba(150,112,0,0.9);
-        top:10%;
-        left:23%;
+        background: rgba(10,0,0,0.5);
+        border:2px dotted brown;
+        width:50%;
+        height:60%;
+        border:2px dotted brown;
+        font-weight: 800;
+        font-size:50px;
     
-        z-index:0;
-    
-        border-radius:35%;
-        animation: animationTitle 5s linear forwards;
-        box-shadow:0 5px 5px powderblue,0 10px 10px deepskyblue;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        -webkit-text-stroke:0.5px goldenrod;
-        transition:background-color 1s,letter-spacing 1s;
+        text-shadow: 0 2px 2px blue,0 3px 3px blue,0 4px 4px blue;
 
-
+      
+     
     }
-    .title:hover{
-        letter-spacing: 4px;
-        background-color: red;
-    }
-    @keyframes animationTitle{
-        0%{
-            transform: translateY(0);
-        }
-        40%{ 
+    .right{
+            width:20%;
+            height:20%;
+        background: rgba(10,0,0,0.5);
+            border:2px dotted brown;
+            width:50%;
+            height:60%;
+            border:2px dotted brown;
+            font-weight: 800;
+            font-size:50px;
+            text-shadow: 0 2px 2px blue,0 3px 3px blue,0 4px 4px blue;
           
-            transform: translateY(50px);
-        }
-            70%{
-                z-index: 1;
-                transform: translateY(-50px)
-            }
-        100%{
-            transform: translateY(-50px);
-            z-index: 1;
-        }
     }
+    .return{
+        width:100%;
+        height:40%;
+        background: rgba(0,0,0,0.4);
+        font-size:22px;
+        color:white;
+    }
+}
+//RETURN EFFECT _ WHEN USER WANT BACK TO FIRST PAGE IT TURN ON
+.returnEffect{
+    width:30%;
+    height:10%;
+ 
+    position:absolute;
+    left:35%;
+    top:45%;
+    z-index:100;
+    animation:animationLoader 10s linear infinite;
+    opacity:0;
+
+}
+@keyframes animationLoader{
+    0%{
+        filter:hue-rotate(0)
+    }
+    100%{
+        filter:hue-rotate(360deg)
+    }
+}
    }

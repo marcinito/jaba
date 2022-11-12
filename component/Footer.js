@@ -1,7 +1,7 @@
 import s from '../styles/Footer.module.scss'
 const Footer = () => {
     return ( <div className={s.footer}>
-        <h1>Siema</h1>
+       <em className={s.email}><a href="#">Napisz do mnie!</a></em>
     </div> );
 }
  

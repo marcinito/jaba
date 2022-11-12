@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import s from '../styles/Header.module.scss'
 import { changeImageInCarouzel } from '../FUNCTIONS/headerPage/changeImageInCarouzel';
+
 const HeaderPage = ({data}) => {
     const effectSlideFn=(e)=>{
      
@@ -21,6 +22,7 @@ useEffect(()=>{
     slideRef.current.style.transform=`translateX(`+ -size +"px"
 })
 useEffect(()=>{
+    console.log("wykonuje sie")
     window.addEventListener("mousemove",effectSlideFn)
     return ()=>{
         window.removeEventListener("mousemove",effectSlideFn)

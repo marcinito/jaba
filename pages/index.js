@@ -8,6 +8,7 @@ import World from '../component/World'
 import Categories from '../component/Categories'
 import { Participle } from '../FUNCTIONS/CANVAS/ParticpleClass'
 import Footer from '../component/Footer'
+import Canvas from '../component/Canvas'
 
 
 export const getStaticProps=async()=>{
@@ -35,40 +36,14 @@ export default function Home({data,full}) {
   const requestRef=useRef()
   
   const container=useRef()
-  const canvasRef=useRef()
-  const context=useRef()
+
+  
 
 
 
 
 
-  useEffect(()=>{
-    let width=container.current.clientWidth
- 
-let height=canvasRef.current.clientHeight
-let canvas=canvasRef.current
-context.current=canvas.getContext("2d")
-console.log(height)
-let arr=[]
-for(let i=0;i<1000;i++){
-  arr.push(new Participle(width,height))
-}
 
-const animate=()=>{
-  context.current.clearRect(0,0,width,height)
-  arr.forEach((el,i,arr)=>{
-    el.draw(context.current)
-  })
-
-  requestAnimationFrame(animate)
-}
-
-
-
-
-    requestRef.current =requestAnimationFrame(animate)
-    return ()=>cancelAnimationFrame(requestRef.current)
-  },[])
 
 
   return (
@@ -81,7 +56,7 @@ const animate=()=>{
         
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <canvas className={s.canvas} ref={canvasRef}></canvas>
+     <Canvas container={container}></Canvas>
    <header className={s.header}>
 
 <Contact></Contact>
