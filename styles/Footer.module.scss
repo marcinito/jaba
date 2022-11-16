@@ -1,16 +1,57 @@
-.footer{
-    width:100%;
-    height:100%;
-   background: rgba(0,0,0,0.5);
-   color:red;
-   .email{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100%;
-    a{
-        color:blue;
-        -webkit-text-stroke:0.5px white;
+@import './mixin';
+@include mq(small){
+    .footer{
+        width:100%;
+        height:100%;
+       background: rgba(0,0,0,0.5);
+       color:red;
+       .email{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        a{
+            color:red;
+            -webkit-text-stroke:0.5px white;
+        }
+       }
     }
-   }
 }
+@include mq(xsmall){
+    .footer{
+        width:100%;
+        height:100%;
+       background: rgba(0,0,0,0.5);
+       color:red;
+       .email{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        a{
+            color:red;
+            -webkit-text-stroke:0.5px white;
+        }
+       }
+    }
+}
+@include mq(medium){
+    .footer{
+        width:100%;
+        height:100%;
+      
+       background: rgba(0,0,0,0.5);
+       color:red;
+       .email{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        a{
+            color:red;
+            -webkit-text-stroke:0.5px white;
+        }
+       }
+    }
+}
+
