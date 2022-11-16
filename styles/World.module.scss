@@ -1,65 +1,223 @@
-.world{
-    width:100%;
-    height:23%;
-    position:absolute;
-    z-index:200;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    transform-style: preserve-3d;
-  
-
-    .earth{
-        width:50%;
-        height:90%;
-        border-radius:50%;
-        background-color: white;
+@import './mixin';
+//SMALL
+@include mq(small){
+    .world{
+        width:100%;
+        height:23%;
         position:absolute;
-        
-        background: url("../public/mapa.jpg");
-        background-size: cover;
-        background-repeat: repeat;
-        animation:roundEarth 8s infinite linear;
-        box-shadow:inset 0 0 10px #466ff3,0 0 30px #466ff3;
-
-     
-        
-    }
-    @keyframes roundEarth{
-        0%{
-            background-position: 0 0;
-        }
-        100%{
-            background-position: 678px 0;
-        }
-    }
-    .text{
-        position:absolute;
+        z-index:200;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         transform-style: preserve-3d;
-        top:20%;
-        left:48%;
-       
-
+        overflow:hidden;
       
-
-    animation:animationText 5s infinite;
-  
-    }
-    .text span{
-        position:absolute;
-        
-        display:inline-block;
-        background: blue;
-        color:#35146f;
-        font-size:40px;
-        transform-origin: center;
-        transform-style: preserve-3d;
-        z-index:100;
-        padding:1px 14px;
-        transform:rotateY(calc(var(--i) *  calc(360deg / 20))) translateZ(140px)
-    }
-    @keyframes animationText{
-        0%{transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(30px);}
-        100%{transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(30px);}
+    
+        .earth{
+            width:50%;
+            height:90%;
+            border-radius:50%;
+            background-color: white;
+            position:absolute;
+            
+            background: url("../public/mapa.jpg");
+            background-size: cover;
+            background-repeat: repeat;
+            animation:roundEarth 8s infinite linear;
+            box-shadow:inset 0 0 10px #466ff3,0 0 30px #466ff3;
+    
+            .earth:hover{
+          
+           
+                animation:roundEarth 2s infinite linear;
+            }
+            
+        }
+        @keyframes roundEarth{
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 678px 0;
+            }
+        }
+        .text{
+            position:absolute;
+            transform-style: preserve-3d;
+            top:20%;
+            left:48%;
+           
+    
+          
+    
+        animation:animationText 5s infinite;
+      
+        }
+        .text span{
+            position:absolute;
+            
+            display:inline-block;
+            background: blue;
+            color:#35146f;
+            font-size:40px;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            z-index:100;
+            padding:1px 14px;
+            transform:rotateY(calc(var(--i) *  calc(360deg / 20))) translateZ(140px)
+        }
+        @keyframes animationText{
+            0%{transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(30px);}
+            100%{transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(30px);}
+        }
     }
 }
+//XSMALL
+@include mq(xsmall){
+    .world{
+        width:100%;
+        height:23%;
+        position:absolute;
+        z-index:200;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+       
+      
+    
+        .earth{
+            width:40%;
+            height:90%;
+            border-radius:50%;
+            background-color: white;
+            position:absolute;
+            
+            background: url("../public/mapa.jpg");
+            background-size: cover;
+            background-repeat: repeat;
+            animation:roundEarth 8s infinite linear;
+            box-shadow:inset 0 0 10px #466ff3,0 0 30px #466ff3;
+    
+         
+            
+        }
+        @keyframes roundEarth{
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 678px 0;
+            }
+        }
+        .text{
+            position:absolute;
+            transform-style: preserve-3d;
+            top:20%;
+            left:48%;
+           
+    
+          
+    
+        animation:animationText 5s infinite;
+      
+        }
+        .text span{
+            position:absolute;
+            
+            display:inline-block;
+            background: blue;
+            color:#35146f;
+            font-size:40px;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            z-index:100;
+            padding:1px 14px;
+            transform:rotateY(calc(var(--i) *  calc(360deg / 20))) translateZ(140px)
+        }
+        @keyframes animationText{
+            0%{transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(30px);}
+            100%{transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(30px);}
+        }
+    }
+}
+//MEDIUM
+@include mq(medium){
+    $speedEarth:8s;
+    .world{
+        width:100%;
+        height:30%;
+        position:absolute;
+        z-index:200;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+       
+      
+    
+        .earth{
+            width:30%;
+            height:90%;
+            border-radius:50%;
+            background-color: white;
+            position:absolute;
+            left:50%;
+            transform: translateX(-50%);
+            background: url("../public/mapa.jpg");
+            background-size: cover;
+            background-repeat: repeat;
+            animation:roundEarth 8s infinite linear;
+            box-shadow:inset 0 0 10px #466ff3,0 0 30px #466ff3;
+            transition:left 2s;
+            z-index:100;
+          
+    
+         
+            
+        }
+        .earth:hover{
+          
+           
+            animation:roundEarth 2s infinite linear;
+        }
+        @keyframes roundEarth{
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 678px 0;
+            }
+        }
+        .text{
+            position:absolute;
+            transform-style: preserve-3d;
+            top:20%;
+            left:48%;
+           
+    
+          
+    
+        animation:animationText 5s infinite;
+      
+        }
+        .text span{
+            position:absolute;
+            
+            display:inline-block;
+            background: blue;
+            color:#35146f;
+            font-size:40px;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            z-index:100;
+            padding:1px 14px;
+            transform:rotateY(calc(var(--i) *  calc(360deg / 20))) translateZ(140px)
+        }
+        @keyframes animationText{
+            0%{transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(30px);}
+            100%{transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(30px);}
+        }
+    }
+}
+

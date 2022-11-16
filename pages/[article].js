@@ -15,7 +15,7 @@ export const getStaticPaths=async()=>{
     })
     const paths=res.items.map(item=>{
         return {
-            params:{id:item.fields.adres}
+            params:{article:item.fields.adres}
         }
     })
     return{
@@ -42,9 +42,14 @@ for(let i=0;i<20;i++){
 
   
     const router=useRouter()
+    const sprites=useRef()
+    const firstPartTitleText=useRef()
+   
     const effectSlideFn=(e)=>{
      
-   
+
+   //IF yout mouse pointer is after half screen it means that you will click
+   //right button and this function then set effect on left side in order it move to right
         let width=window.innerWidth/2
         if(e.clientX<width){
             effect.current.style.transition=`0s`
@@ -69,21 +74,22 @@ const effectReturnFn=()=>{
     const effect=useRef()
     const returnEffectRef=useRef()
     const container=useRef()
+//Introductory setting for slider
     useEffect(()=>{
+        
         let size=slideRef.current.clientWidth
-        console.log(size)
-        console.log(window.innerWidth)
-       
+  
         slideRef.current.style.transform=`translateX(`+  -size + "px"
-    })
+    },[])
+    //EFFECT WHEN USER CHANGE slide
     useEffect(()=>{
-        console.log("useEffect")
         window.addEventListener("mousemove",effectSlideFn)
         return ()=>{
             window.removeEventListener("mousemove",effectSlideFn)
         }
     })
-  
+  //Set appropriate position spaceShip in Title
+
    
     let title=data.fields.tytul.split("")
     let middleIndex=Math.ceil(title.length / 2)
@@ -113,8 +119,8 @@ const effectReturnFn=()=>{
                 })}
             </div>
             <div className={s.title}>
-                <div className={s.sprites}></div>
-                <p className={s.firstPart}>{firstPart}</p><p className={s.secondPart}>{secondPart}</p>
+                <div ref={sprites} className={s.sprites}></div>
+                <p ref={firstPartTitleText}  className={s.firstPart}>{firstPart}</p><p className={s.secondPart}>{secondPart}</p>
                 </div>
             <section className={s.section}>
             <div ref={effect} className={s.effectSlide}>
