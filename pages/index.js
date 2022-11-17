@@ -32,20 +32,12 @@ export const getStaticProps=async()=>{
 
 export default function Home({data,full}) {
 
-
+useEffect(()=>{
+  console.log(screen.width,"width")
+console.log(screen.height,"height")
+})
   const requestRef=useRef()
-  
   const container=useRef()
-
-  
-
-
-
-
-
-
-
-
   return (
     <div ref={container} className={s.container}>
       <Head>
