@@ -130,7 +130,7 @@
 @include mq(large){
   .container{
     margin:auto;
-    width:90vw;
+    width:80vw;
     height:150vh;
     
   
@@ -179,54 +179,4 @@
 }
 //Since 1224
 
-@include mq(medium){
-  .container{
-    margin:auto;
-    width:70vw;
-    height:150vh;
-    
-  
-
-  
-  
-    position:relative;
-  }
-  .header{
-    position:relative;
-  height:55%;
-    width:100%;
-
-
-
-
-  
-  }
-  .main{
-    width:100%;
-    height:46%;
-
-   
-  }
-  .canvas{
-    position: absolute;
-    background:linear-gradient(lighten(gray,2%),black, gray,black);
-    width:100%;
-    max-width:100%;
-    height:100%;
-  
-  
-  }
-  .footer{
-    position:relative;
-    background: rgba(220,0,0,0.6);
-    z-index:200;
-    width:100%;
-    height:5%;
-    z-index:1000;
-
-   
-  
-   
-  }
-}
 

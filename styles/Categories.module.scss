@@ -615,5 +615,218 @@
     
     }
 }
+@include mq(large){
 
+    .categories{
+        position: relative;
+        z-index:100;
+        background-color: lighten(pink,10%);
+        width:100%;
+        height:100%;
+      
+       
+    
+        .canvasCategories{
+            width:100%;
+            height:100%;
+            position:absolute;
+            background-color: black;
+            top:4%;
+        }
+       
+        .rocket{
+            position:absolute;
+            bottom:0;
+            z-index:1000;
+        }
+        .title{
+            text-align: center;
+            position:relative;
+            top:0;
+            width:100%;
+            background:linear-gradient(rgba(0,0,0,0.5),black,skyblue);
+            color:white;
+            -webkit-text-stroke:0.3px darkblue;
+            height:10%;
+            font-size:3vh;
+       
+        }
+        .section{
+            width:100%;
+            height:100%;
+            background-color: skyblue;
+            display:grid;
+            grid-template-columns: 31% 31% 31%;
+            grid-template-rows: 50% 50%;
+            column-gap: 10px;
+            
+         
+            overflow-y:hidden;
+            padding:3% 0 0 0;
+        
+         
+            
+           
+            
+        }
+        .article{
+            position:relative;
+            margin-left:5%;
+            width:90%;
+            height:100%;
+            grid-row: 1/2;
+           
+          
+         
+           
+    
+         
+            box-shadow: 0 10px 10px rgba(0,0,0,0.8);
+            margin-bottom: 10%;
+            transition:background-color 1s;
+            top:8%;
+           
+           
+        }
+        .article:hover{
+            background-color: pink;
+        }
+        .imgThumbnail{
+            width:100%;
+            height:100%;
+        }
+        .button{
+            position: absolute;
+            width:100%;
+            height:90px;
+            left:0;
+            font-size:17px;
+            padding:0;
+            margin:0;
+            overflow:hidden;
+            text-align: center;
+            transition:width 0.5s,background-color 1s;
+            border:none;
+            text-decoration: none;
+            outline: none;
+            color:white;
+            font-weight:600;
+            background-color: rgba(55,0,0,0.5);
+          
+            a{
+                text-decoration: none;
+                font-weight:bold;
+                color:black;
+                padding:10px 20px;
+                width:fit-content;
+            }
+          
+        }
+        .span1{
+            position:absolute;
+       width:100%;
+            height:6px;
+            background:linear-gradient(45deg,transparent,yellow,red);
+            top:0;
+            left:-100%;
+            z-index:2;
+            animation: spanOne 5s infinite;
+            border-radius:10%;
+        }
+        .span2{
+            position:absolute;
+       width:100%;
+            height:6px;
+            background-color: red;
+            bottom:0.8px;
+            left:100%;
+            z-index:2;
+            animation: spanTwo 5s 2s infinite;
+               background:linear-gradient(45deg,red,yellow,transparent);
+               border-radius:10%;
+          
+        }
+        .span3{
+            position:absolute;
+       width:6px;
+            height:100%;
+            background-color:orange;
+            top:-100%;
+            left:94%;
+            z-index:2;
+            animation: spanThree 5s 1s infinite;
+            background:linear-gradient(45deg,transparent,yellow,red);
+            border-radius:10%;
+        }
+        .span4{
+            position:absolute;
+       width:6px;
+            height:100%;
+            background-color:darkblue;
+            top:100%;
+            left:0;
+            z-index:2;
+            animation: spanFour 5s 3s infinite;
+            background:linear-gradient(45deg,transparent,yellow,red);
+            border-radius:10%;
+        }
+     
+        @keyframes spanOne{
+            0%{
+                transform:translateX(0%);
+               
+            }
+            25%{
+                transform:translateX(200%);
+               
+            }
+            100%{
+                transform:translateX(200%);
+           
+            }
+        }
+         
+        @keyframes spanThree{
+            0%{
+                transform:translateY(0%)
+            }
+            20%{
+                transform:translateY(200%)
+            }
+            100%{
+                transform:translateY(200%)
+            }
+        }
+        @keyframes spanTwo{
+            0%{
+                transform:translateX(0%)
+            }
+            25%{
+                transform:translateX(-200%)
+            }
+            100%{
+                transform:translateX(-200%)
+            }
+        }
+        @keyframes spanFour{
+            0%{
+                transform:translateY(0%)
+            }
+            25%{
+                transform:translateY(-200%)
+            }
+            100%{
+                transform:translateY(-200%)
+            }
+        }
+    
+        .button:hover{
+            letter-spacing: 1px;
+            color:red;
+            width:100px;
+        
+        }
+    
+    }
+}
 
