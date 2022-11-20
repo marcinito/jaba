@@ -27,7 +27,7 @@ export const getStaticPaths=async()=>{
 export const getStaticProps=async(context)=>{
     const res=await client.getEntries({
         content_type:"zdjecia",
-        'fields.adres':context.params.id
+        'fields.adres':context.params.article
     })
     return {
         props:{data:res.items[0]}
@@ -35,6 +35,7 @@ export const getStaticProps=async(context)=>{
 }
 //ARTICLE COMPONENT
 const Article = ({data}) => {
+    console.log(data,"data")
     let loaderArr=[]
 for(let i=0;i<20;i++){
     loaderArr.push({"--i":i})
@@ -78,7 +79,7 @@ const effectReturnFn=()=>{
     useEffect(()=>{
         
         let size=slideRef.current.clientWidth
-  
+        console.log(size)
         slideRef.current.style.transform=`translateX(`+  -size + "px"
     },[])
     //EFFECT WHEN USER CHANGE slide
@@ -144,8 +145,8 @@ const effectReturnFn=()=>{
                     
             </section>
            <div className={s.buttonPak}>
-            <button className={s.left} onClick={()=>changeImageInCarouzel(slideRef,"left",arrayWithImg,effect)}>←</button>
-            <button className={s.right} onClick={()=>changeImageInCarouzel(slideRef,"right",arrayWithImg,effect)}>→</button>
+            <button className={s.left} onClick={()=>changeImageInCarouzel(slideRef,"left",arrayWithImg,effect)}></button>
+            <button className={s.right} onClick={()=>changeImageInCarouzel(slideRef,"right",arrayWithImg,effect)}></button>
             <button className={s.return} onClick={()=>effectReturnFn()} >Powrót</button>
            </div>
         </main>

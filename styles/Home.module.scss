@@ -130,8 +130,10 @@
 @include mq(large){
   .container{
     margin:auto;
-    width:80vw;
+    width:70vw;
     height:150vh;
+  
+    
     
   
 
@@ -158,9 +160,12 @@
   .canvas{
     position: absolute;
     background:linear-gradient(lighten(gray,2%),black, gray,black);
-    width:100%;
+    width:70vw;
     max-width:100%;
     height:100%;
+    left:50%;
+    transform: translateX(-50%);
+  
   
   
   }

@@ -5,10 +5,12 @@ import { useEffect,useRef } from 'react';
 
 
 const Categories = ({full}) => {
+    console.log(full)
     const rocketRef=useRef()
     const windowSize=useRef()
+    const buttonCheckRef=useRef()
     const rocketHandle=()=>{
-        console.log(window.scrollY,"position scroll")
+      
      
 
 
@@ -34,7 +36,23 @@ const Categories = ({full}) => {
                     }
                 
     }
+  
+    const buttonHover=(e)=>{
+     e.target.style.width=`80%`
+     e.target.style.height=`100%`
+     setTimeout(()=>{
+        e.target.style.width=`100%`
+        e.target.style.height=`40%`
+     },1500)
+      
+    }
+    const buttonLeave=(e)=>{
+        console.log("dziala")
+        e.target.style.width=`100%`
+        e.target.style.height=`40%`
+    }
 useEffect(()=>{
+ 
    windowSize.current=window.innerWidth
     window.addEventListener("scroll",rocketHandle)
     return ()=>{
@@ -49,12 +67,12 @@ useEffect(()=>{
        
          {full.map((el,i,arr)=>{
             return(
-                <article key={el.sys.id} className={s.article} style={windowSize.current>725?{gridColumn:`${i}+${i+1}`}:null}>
+                <article  key={el.sys.id} className={s.article} style={windowSize.current>725?{gridColumn:`${i}+${i+1}`}:null}>
                    
                     <img className={s.imgThumbnail} src={el.fields.images[0].fields.file.url}></img>
                    
                     <Link href={`/${el.fields.adres}`}>
-                    <button className={s.button}>Sprawdz
+                    <button onMouseLeave={(e)=>buttonLeave(e)} onMouseOver={(e)=>buttonHover(e)} className={s.button}>Sprawdz
                     <span className={s.span1}></span>
                         <span className={s.span2}></span>
                         <span className={s.span3}></span>
